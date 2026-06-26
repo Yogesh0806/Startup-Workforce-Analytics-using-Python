@@ -8,6 +8,8 @@ import seaborn as sns
 
 df = pd.read_csv(r"C:\Users\HP\OneDrive\Documents\Desktop\Startup Workforce Analytics using Python\employee_data.csv")
 
+# Data Understanding :-
+
 # print(df.head())
 # ID Gender  Experience (Years)               Position  Salary
 # 0   1      F                   4        DevOps Engineer  109976
@@ -28,4 +30,31 @@ df = pd.read_csv(r"C:\Users\HP\OneDrive\Documents\Desktop\Startup Workforce Anal
 # print(df.duplicated().sum())
 
 # chack data types of the column
-print(df.dtypes())
+# print(df.dtypes())
+
+# Data Analysis with visualization and Statastics :-
+
+# 1. Gender Analysis
+
+# Gender Distribution
+
+# plt.figure(figsize=(6,4))
+# sns.countplot(data=df, x='Gender',palette=['lightgreen','skyblue'])
+# plt.title('Gender Distribution')
+# plt.show()
+
+gender_count = df['Gender'].value_counts()
+# print(gender_count)
+
+# Gender
+# M    202
+# F    198
+# Name: count, dtype: int64
+
+gender_percentage = round((df['Gender'].value_counts(normalize = True))*100,2)
+# print(gender_percentage)
+
+# Gender
+# M    50.5
+# F    49.5
+# Name: proportion, dtype: float64
