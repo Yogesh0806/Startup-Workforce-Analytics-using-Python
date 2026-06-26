@@ -216,5 +216,18 @@ gender_salary = (df.groupby("Gender")["Salary"].mean())
 
 '''8. Correlation Analysis'''
 correlation = df[["Experience (Years)", "Salary"]].corr()
-print(correlation)
+# print(correlation)
+        #    Experience (Years)   Salary
+        # Experience (Years)             1.00000  0.61853
+        # Salary                         0.61853  1.00000
 
+
+
+# Saved the important results of day 2 as csv
+# avg_Salary_Position.to_csv(
+#     "avg_salary_by_position.csv"
+# )
+
+# avg_Exp_Position.to_csv(
+#     "avg_experience_by_position.csv"
+# )
