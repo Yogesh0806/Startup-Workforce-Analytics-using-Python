@@ -91,6 +91,30 @@ elif majority_gender == 'F':
 minority_gender = gender_count.idxmin()
 minority_count = gender_count.min()
 
-print(f"Insight 1: {majority_gender} employees form the largest workforce group ({majority_count} employees).")
+# print(f"Insight 1: {majority_gender} employees form the largest workforce group ({majority_count} employees).")
 
-print(f"Insight 2: Both genders are represented across multiple positions, indicating workforce diversity.")
+# print(f"Insight 2: Both genders are represented across multiple positions, indicating workforce diversity.")
+
+'''Insight 4: Experience vs Salary Relationship'''
+
+# plt.figure(figsize=(8,6))
+# sns.scatterplot(data=df,x='Experience (Years)',y='Salary')
+# plt.title('Experience vs Salary')
+# plt.show()
+
+correlation = df[['Experience (Years)', 'Salary']].corr().iloc[0,1]
+
+# print(correlation)            0.618529862372841
+
+
+print(
+    f"Insight 1: There is a moderate positive relationship between "
+    f"experience and salary (correlation = {correlation:.3f}), "
+    "indicating that employees with more experience generally earn higher salaries."
+)
+
+print(
+    "Insight 2: Salary tends to increase with experience, "
+    "but variation among employees with similar experience levels suggests "
+    "that other factors such as position and responsibilities also affect compensation."
+)
