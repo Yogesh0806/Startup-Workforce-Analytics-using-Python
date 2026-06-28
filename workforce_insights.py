@@ -107,14 +107,31 @@ correlation = df[['Experience (Years)', 'Salary']].corr().iloc[0,1]
 # print(correlation)            0.618529862372841
 
 
-print(
-    f"Insight 1: There is a moderate positive relationship between "
-    f"experience and salary (correlation = {correlation:.3f}), "
-    "indicating that employees with more experience generally earn higher salaries."
-)
+# print(
+#     f"Insight 1: There is a moderate positive relationship between "
+#     f"experience and salary (correlation = {correlation:.3f}), "
+#     "indicating that employees with more experience generally earn higher salaries."
+# )
 
-print(
-    "Insight 2: Salary tends to increase with experience, "
-    "but variation among employees with similar experience levels suggests "
-    "that other factors such as position and responsibilities also affect compensation."
+# print(
+#     "Insight 2: Salary tends to increase with experience, "
+#     "but variation among employees with similar experience levels suggests "
+#     "that other factors such as position and responsibilities also affect compensation."
+# )
+
+
+'''Report : Dashboard'''
+
+fig, axes= plt.subplots(2,2, figsize=(10,5))
+
+# Gender
+df['Gender'] = df['Gender'].replace({
+    'M': 'Male',
+    'F': 'Female'
+})
+df['Gender'].value_counts().plot(
+    kind='pie',
+    ax=axes[0,0],
+    autopct='%1.1f%%'
 )
+plt.show()
