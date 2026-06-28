@@ -120,18 +120,49 @@ correlation = df[['Experience (Years)', 'Salary']].corr().iloc[0,1]
 # )
 
 
-'''Report : Dashboard'''
+'''Report: Dashboard'''
 
 fig, axes= plt.subplots(2,2, figsize=(10,5))
 
 # Gender
-df['Gender'] = df['Gender'].replace({
-    'M': 'Male',
-    'F': 'Female'
-})
-df['Gender'].value_counts().plot(
-    kind='pie',
-    ax=axes[0,0],
-    autopct='%1.1f%%'
-)
-plt.show()
+df['Gender'] = df['Gender'].replace({'M': 'Male','F': 'Female'})
+
+df['Gender'].value_counts().plot(kind='pie',ax=axes[0,0],autopct='%1.1f%%')
+
+
+# Position
+sns.countplot(data=df,y='Position',ax=axes[0,1],  palette='Reds')
+
+
+# Salary
+sns.histplot(data=df,x='Salary',ax=axes[1,0])
+
+
+# Experience vs Salary
+sns.scatterplot(data=df, x='Experience (Years)', y='Salary', ax=axes[1,1])
+
+
+plt.tight_layout()
+# plt.show()
+
+
+'''Dashboard Insights'''
+
+print("1. Workforce Composition")
+print("The workforce is nearly balanced by gender, with Male employees (50.5%) and Female employees (49.5%).")
+
+print("\n2. Position Distribution")
+print("Web Developer and IT Manager have the highest employee counts, while Cloud Solutions Architect has the lowest representation.")
+
+print("\n3. Salary Distribution")
+print("Most employee salaries are concentrated between 90,000 and 170,000, while a smaller number earn above 200,000.")
+
+print("\n4. Experience vs Salary")
+print("There is a moderate positive relationship between experience and salary (correlation = 0.619).")
+
+print("\n5. Salary Variation")
+print("Employees with similar experience levels often receive different salaries, indicating that job position and responsibilities also influence compensation.")
+
+print("\n6. Business Insight")
+print("Employee compensation is primarily influenced by experience and job role, with senior and specialized positions receiving higher salaries.")
+
